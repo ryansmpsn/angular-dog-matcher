@@ -16,3 +16,19 @@
 .content {
   padding: 3.75rem;
 }
+
+nav {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style-type: none;
+
+    li {
+      &:hover {
+        color: #007bff;
+        cursor: pointer;
+      }
+    }
+  }
+}
