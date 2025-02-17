@@ -1,1 +1,7 @@
-<p>counter works!</p>
+<p>{{ title() }} works!</p>
+<p>The time is {{ time() }}</p>
+<p>is your current count is: {{ count() }}</p>
+<input type="button" value="Increment" (click)="increment()" />
+<input type="button" value="Decrement" (click)="decrement()" />
+<input type="button" value="reset" (click)="reset()" />
+<input type="test" placeholder="test input..." (keyup)="keyUpHandler($event)" />
