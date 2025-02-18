@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { TodosService } from '../../services/todos.service';
 import { Todo } from '../../model/todo.type';
 import { catchError } from 'rxjs';
@@ -12,10 +12,13 @@ import { catchError } from 'rxjs';
 export class TodosComponent implements OnInit {
   todoService = inject(TodosService);
   todoItems = signal<Todo[]>([]);
+  localTodos = this.todoService.todosList();
+  allTodos = computed(() => [...this.todoItems(), ...this.localTodos]);
+  loaded = this.todoService.loaded();
 
   ngOnInit(): void {
     this.todoService
-      .getTodos()
+      .getTodosFromApi()
       .pipe(
         catchError((err) => {
           console.log(err);
