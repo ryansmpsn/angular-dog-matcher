@@ -5,3 +5,6 @@ export type Todo = {
   description?: string;
   id: number;
 };
+
+export type AddTodo = Omit<Todo, 'id'>;
+export type EditTodoList = Partial<Todo> & { id: number };
