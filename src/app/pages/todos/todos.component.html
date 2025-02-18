@@ -1,5 +1,9 @@
 <h1>TODO's List</h1>
 
+@if(!allTodos().length ){
+<p>...loading</p>
+}
+
 <ul class="todo-list">
   @for(todo of allTodos(); track todo.id) {
 
